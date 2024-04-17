@@ -12,9 +12,9 @@ let personas = new Set<Persona1>();
 let empleados = new Map<string, Empleado1>();
 
 function displayData(type: string, data: Persona1 | Empleado1) {
-    const displayDiv = document.getElementById('display');
+    let displayDiv = document.getElementById('display');
 
-    const newElement = document.createElement('p');
+    let newElement = document.createElement('p');
     newElement.textContent = `Nueva ${type} Nombre: ${data.nombre} y edad: ${data.edad}`;
 
     if (type === 'Empleado') {
@@ -25,9 +25,9 @@ function displayData(type: string, data: Persona1 | Empleado1) {
 }
 
 function displayMessage(message: string) {
-    const displayDiv = document.getElementById('display');
+    let displayDiv = document.getElementById('display');
 
-    const newElement = document.createElement('p');
+    let newElement = document.createElement('p');
     newElement.textContent = message;
 
     displayDiv.appendChild(newElement);
@@ -38,7 +38,7 @@ function addPersona(nombre: string, edad: number): void {
     personas.add(persona);
 
     let sumaEdades = Array.from(personas).reduce((suma, persona) => suma + persona.edad, 0);
-    const message = `La edad media de las personas introducidas es: ${sumaEdades / personas.size}`;
+    let message = `La edad media de las personas introducidas es: ${sumaEdades / personas.size}`;
     console.log(message);
 
     displayData('Persona', persona);
@@ -53,8 +53,8 @@ function addEmpleado(nombre: string, edad: number, identificacion: string, exper
         let sumaEdades = Array.from(empleados.values()).reduce((suma, empleado) => suma + empleado.edad, 0);
         let sumaExperiencias = Array.from(empleados.values()).reduce((suma, empleado) => suma + empleado.experiencia, 0);
 
-        const message1 = `La edad media de los empleados es: ${sumaEdades / empleados.size}`;
-        const message2 = `La experiencia acumulada de los empleados es: ${sumaExperiencias}`;
+        let message1 = `La edad media de los empleados es: ${sumaEdades / empleados.size}`;
+        let message2 = `La experiencia acumulada de los empleados es: ${sumaExperiencias}`;
 
         console.log(message1);
         console.log(message2);
