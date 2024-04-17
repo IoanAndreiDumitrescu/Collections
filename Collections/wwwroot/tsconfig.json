@@ -1,0 +1,13 @@
+﻿{
+  "compilerOptions": {
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "ES2015"
+  },
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ]
+}
