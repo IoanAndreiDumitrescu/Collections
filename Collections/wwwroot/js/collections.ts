@@ -15,32 +15,25 @@ function displayData(type: string, data: Persona1 | Empleado1) {
     let displayDiv = document.getElementById('display');
 
     let newElement = document.createElement('p');
-    newElement.textContent = `Nueva ${type} Nombre: ${data.nombre} y edad: ${data.edad}`;
-
+    newElement.textContent = `Nueva ${type} |Nombre: ${data.nombre}  |Edad: ${data.edad}`;
     if (type === 'Empleado') {
-        newElement.textContent += ` EL id del empleado es: ${(data as Empleado1).identificacion} y tiene una experiencia de: ${(data as Empleado1).experiencia} años.`
+        newElement.textContent += `|Id del empleado es: ${(data as Empleado1).identificacion} |Experiencia de: ${(data as Empleado1).experiencia} años.`
     }
-
     displayDiv.appendChild(newElement);
 }
 
 function displayMessage(message: string) {
     let displayDiv = document.getElementById('display');
-
     let newElement = document.createElement('p');
     newElement.textContent = message;
-
     displayDiv.appendChild(newElement);
 }
 
 function addPersona(nombre: string, edad: number): void {
     let persona = new Persona1(nombre, edad);
     personas.add(persona);
-
     let sumaEdades = Array.from(personas).reduce((suma, persona) => suma + persona.edad, 0);
     let message = `La edad media de las personas introducidas es: ${sumaEdades / personas.size}`;
-    console.log(message);
-
     displayData('Persona', persona);
     displayMessage(message);
 }
@@ -55,10 +48,6 @@ function addEmpleado(nombre: string, edad: number, identificacion: string, exper
 
         let message1 = `La edad media de los empleados es: ${sumaEdades / empleados.size}`;
         let message2 = `La experiencia acumulada de los empleados es: ${sumaExperiencias}`;
-
-        console.log(message1);
-        console.log(message2);
-
         displayData('Empleado', empleado);
         displayMessage(message1);
         displayMessage(message2);
